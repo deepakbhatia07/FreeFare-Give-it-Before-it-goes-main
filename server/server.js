@@ -18,6 +18,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 connectDB();
 connectRedis();
 
+// Initialize Express application
 const app = express();
 
 const uploadDir = path.join(__dirname, "uploads");
@@ -25,6 +26,7 @@ if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
 
+// Global middlewares configuration
 app.use(express.json());
 app.use(
   cors({
@@ -33,6 +35,7 @@ app.use(
   })
 );
 
+// Route-specific middlewares and router controllers
 app.use("/api", apiLimiter);
 app.use("/uploads", express.static("uploads"));
 
@@ -47,6 +50,7 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 
+// Set up server and WebSocket server for real-time chat messages
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
