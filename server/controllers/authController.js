@@ -4,6 +4,12 @@ const generateToken = require("../utils/generateToken");
 const reverseGeocode = require("../utils/reverseGeocode");
 
 /* ================= REGISTER ================= */
+/**
+ * Registers a new user.
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @param {Function} next - Express next middleware function.
+ */
 exports.register = async (req, res, next) => {
   try {
     const { name, email, password, role } = req.body;
@@ -33,6 +39,12 @@ exports.register = async (req, res, next) => {
 };
 
 /* ================= LOGIN (NO MUTATION) ================= */
+/**
+ * Logs in an existing user and returns their profile details and a JWT token.
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @param {Function} next - Express next middleware function.
+ */
 exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;

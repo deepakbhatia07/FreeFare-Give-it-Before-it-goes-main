@@ -1,6 +1,13 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
+/**
+ * Middleware to protect routes, validating the JWT token in Authorization headers
+ * and checking if the user is authenticated and not banned.
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @param {Function} next - Express next middleware function.
+ */
 exports.protect = async (req, res, next) => {
   try {
     let token;
@@ -23,6 +30,13 @@ exports.protect = async (req, res, next) => {
   }
 };
 
+/**
+ * Middleware to restrict access to admin users only.
+ * Requires the protect middleware to have successfully run beforehand.
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @param {Function} next - Express next middleware function.
+ */
 exports.adminOnly = (req, res, next) => {
   if (req.user && req.user.role === "admin") next();
   else res.status(403).json({ message: "Admin access only" });

@@ -1,5 +1,10 @@
-const mongoose=require("mongoose");
-const userSchema=new mongoose.Schema({
+const mongoose = require("mongoose");
+
+/**
+ * User schema definition representing registered users,
+ * their roles, locations, and ban statuses.
+ */
+const userSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -27,16 +32,6 @@ const userSchema=new mongoose.Schema({
     address:{
         type:String
     },
-    // location: {
-    //     city: { type: String, default: "" },
-    //     region: { type: String, default: "" },
-    //     country: { type: String, default: "" },
-    //     source: {
-    //         type: String,
-    //         enum: ["auto", "manual"],
-    //         default: "auto",
-    //     },
-    // },
 location: {
   city: { type: String, default: "" },
   region: { type: String, default: "" },

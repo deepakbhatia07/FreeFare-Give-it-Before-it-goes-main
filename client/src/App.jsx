@@ -1,35 +1,3 @@
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { AuthProvider } from "./context/AuthContext";
-// import Navbar from "./components/Navbar";
-// import Home from "./pages/Home";
-// import ItemsPage from "./pages/ItemsPage";
-// import ShareItem from "./components/ShareItemModal";
-// import Profile from "./pages/Profile";
-
-
-// function App() {
-//   return (
-//     <AuthProvider>
-//       <Router>
-//         <Navbar />
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/items" element={<ItemsPage/>}/>
-//           <Route path="/share" element={<ShareItem/>} />
-//           <Route path="/profile" element={<Profile/>}/>
-//         </Routes>
-//       </Router>
-//     </AuthProvider>
-//   );
-// }
-
-// export default App;
-
-
-
-
-
-
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
